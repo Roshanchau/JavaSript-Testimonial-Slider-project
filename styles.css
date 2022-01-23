@@ -1,0 +1,112 @@
+/* what did i learn from this?
+-to give padding to the whole section if the content of the body looks to be at the center instead of making the section as display flex and making it to the center---> 
+instead what we can do is give padding to the whole section and also make the individual elements to be in the center like text-align to be centered.
+-we donot need to give the fontsize to have a vh, vw or rem units mostly.
+-and if the content is to have the same width as the section then give it a max-width of 100rem (root element)
+-and prefer to give a margin of auto to be at the center.
+-learnt about max-width and min width//
+---**** max-width -suppose its 40px then it can have any width from 0-40px but cannot exceed 40px.
+**** min-width -suppose its 40px then it can have width from 40px-max but if it is less then 40px then it is resized to have 40px width.--> use it to make the text responsive.
+
+-> rather than usign display flex for simple paragraph or text elements we can use the margin auto.
+
+-> in js if we want to toggle the content then we should not forget to add a class in the contents so as to we can toggle between them we can also add a active clas to it.
+
+-> we can use the vh units in top and bottom and vw units in right and left to give margin or padding.
+
+--> we should better use the rem units for images height and width or the border size.
+
+-> donot foret to give transition to any thing in which any effect is applied.
+
+-> don't forget to give a cursor: pointer; to the image or buttons.
+ */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    line-height: 1.8;
+    background-color: rgb(89,64,92);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section.testimonial{
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+}
+.title{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 300;
+    margin-bottom: 5vh;
+}
+
+.content{
+    max-width: 100rem;
+    margin: 0 auto;
+}
+.slider{
+    max-width: 60rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2vh 1.5vw;
+}
+
+.slide-para{
+     font-size: 25px;
+     font-weight: 100;
+}
+h3{
+   font-size: 30px;
+   font-weight: bold;
+}
+
+.slide{
+    display: none;
+}
+
+.slide.active{
+    display: block;
+  animation: slide 1s linear;
+
+}
+@keyframes slide {
+    0% {
+      transform: translateX(-2rem);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+ .image{
+    height: calc(7rem + 6vw);
+    /* //--> put the space between both befor and after + sign. */
+    width: calc(7rem + 6vw);
+    border-radius: 50%;
+    margin: 2vh 2vw;
+    border: solid 0.2rem #fddb3a;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+.image.active{
+    opacity: 1;
+}
+.indicator{
+    display: flex;
+    justify-content: center;
+    padding: 4vh 0; 
+}
